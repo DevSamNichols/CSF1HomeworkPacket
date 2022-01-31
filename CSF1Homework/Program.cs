@@ -12,28 +12,39 @@ namespace CSF1Homework
         {
 
             // Ask the user to enter an account number for their account
-            //Continue to ask the user for their account number until they get it right (the correct account number will be hard coded in your code. See the login section for an example.
+
+            //Homepage to ATM
+            Console.WriteLine("----CasualCash----\n\n");
+
+            //variables needed
+            int accountNumber = 123456789;
+            int pinNumber = 1234;
+            decimal currentBalance = 1337;
+            bool isUser = false;
 
 
-             Console.WriteLine("Please enter your account number: ");
-             string userName = Console.ReadLine();
-             int accountNumber = Convert.ToInt32(userName);
+            //ADD ATTEMPTS REMAINING IN THE FUTURE
+            do
+            {
 
-             bool isUser = false;
+                Console.WriteLine("Please Enter Your Account Number: ");
+                int accountInput = Convert.ToInt32(Console.ReadLine());
 
-             if (accountNumber == 123456789)
-             {
-                 isUser = true;
-             }
-
-             if (isUser)
-             {
-                 Console.WriteLine("Access Granted! ");
-             }
-             else
-             {
-                 Console.WriteLine("Access Denied, Please enter a Valid account. ");
-             }
+                if (accountInput == accountNumber)
+                {
+                    isUser = true;
+                    Console.Clear();
+                    Console.WriteLine("------CasualCash------\n\n");
+                    Console.WriteLine("Please Enter Your PIN For Account " + accountNumber + ".");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("----CasualCash----\n\n");
+                    Console.WriteLine("No Account Found Under " + accountInput + "\n\n");
+                }
+            } while (isUser != true);
 
 
 
